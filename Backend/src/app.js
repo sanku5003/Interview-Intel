@@ -11,12 +11,19 @@ app.use(
   })
 );
 
-app.use(express.json());
-app.use(cookieParser());
+
 
 // Routes
 const authRouter = require("./Routes/auth.routes");
 const interviewRouter = require("./Routes/interview.routes");
+
+
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        status: "OK",
+        message: "Server is running"
+    });
+});
 
 app.use("/api/auth", authRouter);
 app.use("/api/interview", interviewRouter);
