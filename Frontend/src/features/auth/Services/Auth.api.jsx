@@ -5,11 +5,12 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
 });
-export async function register({ username, email, password }) {
+export async function register({ username, email, contact, password }) {
   try {
     const response = await api.post("/api/auth/register", {
       username,
       email,
+      contact,
       password,
     });
 

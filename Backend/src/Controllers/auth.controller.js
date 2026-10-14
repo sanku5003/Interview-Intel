@@ -19,9 +19,9 @@ const cookieOptions = {
  * @access Public
  */
 async function registerUserController(req, res) {
-  const { username, email, password } = req.body;
+  const { username, email, contact, password } = req.body;
 
-  if (!username || !email || !password) {
+  if (!username || !email || !contact || !password) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
@@ -46,6 +46,7 @@ async function registerUserController(req, res) {
   const newUser = await userModel.create({
     username,
     email,
+    contact,
     password: hash,
   });
 
@@ -63,6 +64,7 @@ async function registerUserController(req, res) {
       _id: newUser._id,
       username: newUser.username,
       email: newUser.email,
+      contact: newUser.contact,
       token,
     },
   });
@@ -106,6 +108,7 @@ async function loginUserController(req, res) {
       _id: user._id,
       username: user.username,
       email: user.email,
+      contact: user.contact,
       token,
     },
   });
@@ -148,6 +151,7 @@ async function getMeController(req, res) {
       id: user._id,
       username: user.username,
       email: user.email,
+      contact: user.contact,
     },
   });
 }

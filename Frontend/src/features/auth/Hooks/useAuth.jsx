@@ -40,11 +40,11 @@ export const useAuth = () => {
     }
   };
 
-  const handleRegister = async ({ email, username, password }) => {
+  const handleRegister = async ({ email, username, contact, password }) => {
     setLoading(true);
 
     try {
-      const data = await register({ email, username, password });
+      const data = await register({ email, username, contact, password });
 
       if (data?.newUser) {
         setUser(data.newUser);

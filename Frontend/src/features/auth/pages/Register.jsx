@@ -9,6 +9,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
@@ -20,6 +21,7 @@ const Register = () => {
     const result = await handleRegister({
       email,
       username,
+      contact,
       password,
     });
 
@@ -66,6 +68,18 @@ const Register = () => {
                   type="email"
                   id="email"
                   placeholder="Enter your email"
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="contact">Contact number</label>
+                <input
+                  className={error ? "field-error" : ""}
+                  onChange={(e) => setContact(e.target.value)}
+                  type="tel"
+                  id="contact"
+                  autoComplete="tel"
+                  placeholder="Enter your contact number"
+                  required
                 />
               </div>
               <div className="input-group">
