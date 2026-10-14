@@ -1,4 +1,3 @@
-import React from "react";
 import axios from "axios";
 
 const api = axios.create({
@@ -31,6 +30,27 @@ export async function login({ email, password }) {
     console.error(error);
     throw error;
   }
+}
+
+export async function requestPasswordReset(email) {
+  const response = await api.post("/api/auth/forgot-password", { email });
+  return response.data;
+}
+
+export async function verifyPasswordResetCode({ email, code }) {
+  const response = await api.post("/api/auth/verify-password-reset-code", {
+    email,
+    code,
+  });
+  return response.data;
+}
+
+export async function resetPassword({ resetToken, newPassword }) {
+  const response = await api.post("/api/auth/reset-password", {
+    resetToken,
+    newPassword,
+  });
+  return response.data;
 }
 
 export async function logout() {

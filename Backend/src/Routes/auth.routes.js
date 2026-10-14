@@ -19,6 +19,30 @@ authRouter.post('/register' , authController.registerUserController);
 
 authRouter.post('/login' , authController.loginUserController);
 
+/**
+ * @route POST/api/auth/forgot-password
+ * @description Send a password-recovery code
+ * @access Public
+ */
+
+authRouter.post('/forgot-password', authController.forgotPasswordController);
+
+/**
+ * @route POST/api/auth/verify-password-reset-code
+ * @description Verify a recovery code
+ * @access Public
+ */
+
+authRouter.post('/verify-password-reset-code', authController.verifyPasswordResetCodeController);
+
+/**
+ * @route POST/api/auth/reset-password
+ * @description Reset a password after code verification
+ * @access Public
+ */
+
+authRouter.post('/reset-password', authController.resetPasswordController);
+
 
 /** * @route POST/api/auth/logout
  * @description Logout user

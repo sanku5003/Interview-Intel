@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./auth.form.scss";
 import { useNavigate, Link } from "react-router";
 import { useAuth } from "../Hooks/useAuth";
@@ -78,7 +78,10 @@ const Register = () => {
                   type="tel"
                   id="contact"
                   autoComplete="tel"
-                  placeholder="Enter your contact number"
+                  inputMode="numeric"
+                  pattern="(?:\+?91)?[6-9][0-9]{9}"
+                  title="Enter a valid 10-digit Indian mobile number"
+                  placeholder="9876543210"
                   required
                 />
               </div>

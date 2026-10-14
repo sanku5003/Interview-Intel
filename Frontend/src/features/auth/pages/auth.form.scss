@@ -115,6 +115,47 @@
   font-size: 0.95rem;
 }
 
+.form-success {
+  color: #a7efcf;
+  background: rgba(59, 177, 126, 0.12);
+  border: 1px solid rgba(103, 214, 166, 0.24);
+  border-radius: 0.95rem;
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+}
+
+.auth-forgot-link {
+  margin: -0.35rem 0 0;
+  text-align: right;
+}
+
+.auth-recovery-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.auth-text-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #7ddbff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.auth-text-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.auth-button-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
 .auth-btn {
   width: 100%;
   padding: 0.95rem 1.2rem;
